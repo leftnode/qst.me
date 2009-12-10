@@ -1,0 +1,11 @@
+php_flag register_globals off
+php_flag magic_quotes_gpc off
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	
+	RewriteRule ^.*.svn/* / [L]
+
+	RewriteRule ^([a-z0-9A-Z]+)$ /redir.php?url=$1 [L]
+	RewriteRule ^([a-z0-9A-Z]+)\$$ /stats.php?url=$1 [L]
+</IfModule>
